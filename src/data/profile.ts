@@ -135,7 +135,7 @@ export const experience: Experience[] = [
     title: 'Computer Vision Engineering Intern',
     type: 'Internship',
     location: 'Vijayawada (Remote)',
-    period: 'Apr 2025 — Oct 2026',
+    period: 'Apr 2023 — Jul 2023',
     short: 'Archover',
     logo: 'archover',
     bullets: [

@@ -148,9 +148,12 @@
 }
 
 @media print {
+  /* A zero page margin leaves the browser no room to draw its own header and
+     footer, which is what prints the date, time and URL on a saved PDF.
+     The visual margin is restored with padding on the sheet itself. */
   @page {
     size: A4;
-    margin: 12mm 13mm;
+    margin: 0;
   }
 
   .resume-page {
@@ -165,7 +168,7 @@
   .resume {
     width: auto;
     max-width: none;
-    padding: 0;
+    padding: 13mm 14mm;
     border: 0;
     border-radius: 0;
     box-shadow: none;

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#15100d" media="(prefers-color-scheme: dark)" />
+
+    <title>Jetti Leela Mani Charan — Software Engineer | Full-Stack & AI</title>
+    <meta
+      name="description"
+      content="Software Engineer in Hyderabad building full-stack microservices, scalable RESTful APIs and accessible UI. React, .NET Core, C#, Python, MERN. Shipped a 125k+ click production feature."
+    />
+    <meta name="author" content="Jetti Leela Mani Charan" />
+    <meta
+      name="keywords"
+      content="Jetti Leela Mani Charan, Software Engineer, React, .NET Core, C#, Python, MERN, accessibility, WCAG, MCP, Hyderabad"
+    />
+    <link rel="canonical" href="https://leelamanicharan.vercel.app/" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jetti Leela Mani Charan — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack & AI solutions: React, .NET Core, microservices, accessibility tooling. See the live Sri Sai Shopping demo."
+    />
+    <meta property="og:url" content="https://leelamanicharan.vercel.app/" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jetti Leela Mani Charan — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack & AI solutions: React, .NET Core, microservices, accessibility tooling."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <!-- Avoid a theme flash before React mounts -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('jlc-theme');
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jetti Leela Mani Charan",
+        "jobTitle": "Software Engineer",
+        "email": "mailto:leelamanicharanjetti@gmail.com",
+        "telephone": "+91-9985671569",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hyderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500081",
+          "addressCountry": "IN"
+        },
+        "alumniOf": "JNTUK",
+        "worksFor": { "@type": "Organization", "name": "Cornerstone OnDemand" },
+        "sameAs": ["https://linkedin.com/in/leelamanicharan45"],
+        "knowsAbout": [
+          "React",
+          ".NET Core",
+          "C#",
+          "TypeScript",
+          "Python",
+          "Microservices",
+          "Web Accessibility",
+          "Machine Learning"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+/* Print-first resume styles. Screen view mimics an A4 sheet. */
+
+.resume-page {
+  min-height: 100svh;
+  padding: clamp(1rem, 3vw, 2.5rem) var(--gutter) 4rem;
+  background: var(--bg-alt);
+}
+
+.resume-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: space-between;
+  width: min(100%, 820px);
+  margin: 0 auto 1.25rem;
+}
+
+.resume-bar__back {
+  transform: rotate(180deg);
+}
+
+.resume {
+  width: min(100%, 820px);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.resume a {
+  color: #8d3a21;
+  text-decoration: none;
+}
+
+.resume__header {
+  padding-bottom: 0.85rem;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.resume__header h1 {
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+.resume__role {
+  margin-top: 0.15rem;
+  font-weight: 600;
+  color: #8d3a21;
+}
+
+.resume__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.resume__contact li:not(:last-child)::after {
+  content: ' |';
+  color: #aaa;
+}
+
+.resume__section {
+  margin-top: 1.25rem;
+  break-inside: avoid;
+}
+
+.resume__section h2 {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1a1a1a;
+}
+
+.resume__entry {
+  margin-bottom: 0.85rem;
+  break-inside: avoid;
+}
+
+.resume__entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.resume__entry h3 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.resume__entry h3 span {
+  color: #8d3a21;
+}
+
+.resume__dates {
+  font-size: 0.78rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.resume__meta {
+  font-size: 0.78rem;
+  color: #666;
+}
+
+.resume__bullets {
+  margin-top: 0.3rem;
+  padding-left: 1.05rem;
+  list-style: disc;
+}
+
+.resume__bullets li {
+  margin-bottom: 0.22rem;
+}
+
+.resume__skills div {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.resume__skills dt {
+  flex: none;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.resume__skills dd {
+  margin: 0;
+  color: #333;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 13mm;
+  }
+
+  .resume-page {
+    padding: 0;
+    background: #fff;
+  }
+
+  .resume-bar {
+    display: none;
+  }
+
+  .resume {
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 10pt;
+    line-height: 1.38;
+  }
+
+  .resume__header h1 {
+    font-size: 19pt;
+  }
+
+  .resume a {
+    color: #1a1a1a;
+  }
+}

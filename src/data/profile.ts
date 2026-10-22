@@ -228,6 +228,16 @@ export type Project = {
   /** when present, the project renders an embedded live-demo window */
   demoUrl?: string
   repoUrl?: string
+  /**
+   * Optional sign-in details surfaced next to the live preview so a visitor
+   * can get past a login wall. Anything put here is PUBLIC — use a throwaway
+   * demo account, never a personal one, and never a reused password.
+   */
+  demoCredentials?: {
+    username: string
+    password: string
+    note?: string
+  }
   featured?: boolean
   /** expected file name (without extension) in src/assets/gallery/ */
   image: string
@@ -237,6 +247,36 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'companions',
+    name: 'Companion',
+    period: '2026',
+    featured: true,
+    demoUrl: 'https://companionsi.vercel.app/login?next=%2F',
+    image: 'companions',
+    blurb:
+      'A local-first AI companion that keeps conversations on your own machine by default, routing to an Ollama model and only reaching for the cloud with your explicit consent.',
+    bullets: [
+      'Built a chat companion that runs against a locally hosted Ollama model, so conversation data never has to leave the user\u2019s device.',
+      'Designed a consent-gated fallback to Google Gemini: when the local model cannot serve a reply, the user is told exactly what will be sent before anything leaves the machine.',
+      'Engineered a memory layer that assembles recent messages, a rolling profile summary and relevant stored memories into the model context for continuity across sessions.',
+      'Kept the server a pass-through that forwards requests without persisting message content, and made the model provider switchable from Settings.',
+    ],
+    stack: ['Ollama', 'Google Gemini API', 'Authentication', 'Vercel'],
+    demoCredentials: {
+      username: 'leelamanicharanjetti@gmail.com',
+      // SECURITY: replaced with a placeholder on purpose - see the note in the
+      // chat. Put a dedicated throwaway demo account's password here, never a
+      // password you use anywhere else.
+      password: 'REPLACE_WITH_DEMO_ACCOUNT_PASSWORD',
+      note: 'Read-only demo account so you can look around without signing up.',
+    },
+    metrics: [
+      { value: 'Local', label: 'first, via Ollama' },
+      { value: 'Opt-in', label: 'cloud fallback' },
+      { value: 'Memory', label: 'aware conversations' },
+    ],
+  },
   {
     slug: 'sri-sai-shopping',
     name: 'Sri Sai Shopping',

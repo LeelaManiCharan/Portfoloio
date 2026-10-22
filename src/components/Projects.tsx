@@ -5,9 +5,11 @@ import { LiveDemo } from './LiveDemo'
 import { Lightbox } from './Lightbox'
 import { SectionHeading } from './SectionHeading'
 import { projects } from '../data/profile'
+import { useCopy } from '../hooks/useCopy'
 
 export function Projects() {
   const [zoom, setZoom] = useState<string | null>(null)
+  const { copied, copy } = useCopy()
   const featured = projects.filter((p) => p.featured)
   const rest = projects.filter((p) => !p.featured)
 
@@ -47,6 +49,45 @@ export function Projects() {
           {project.demoUrl && (
             <LiveDemo url={project.demoUrl} title={project.name} />
           )}
+
+          {project.demoCredentials &&
+          !project.demoCredentials.password.startsWith('REPLACE_') ? (
+            <div className="creds" data-reveal="up">
+              <div className="creds__intro">
+                <span className="creds__icon">
+                  <Icon name="sparkle" size={16} />
+                </span>
+                <div>
+                  <h4>Sign in and try it</h4>
+                  {project.demoCredentials.note && (
+                    <p>{project.demoCredentials.note}</p>
+                  )}
+                </div>
+              </div>
+
+              <ul className="creds__list">
+                {(
+                  [
+                    ['Email', project.demoCredentials.username],
+                    ['Password', project.demoCredentials.password],
+                  ] as const
+                ).map(([label, value]) => (
+                  <li key={label}>
+                    <small>{label}</small>
+                    <code>{value}</code>
+                    <button
+                      type="button"
+                      onClick={() => copy(value)}
+                      aria-label={`Copy ${label.toLowerCase()}`}
+                      title={`Copy ${label.toLowerCase()}`}
+                    >
+                      <Icon name={copied === value ? 'check' : 'copy'} size={14} />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <div className="featured__body">
             <ul className="featured__bullets" data-reveal="up">

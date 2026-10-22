@@ -4,6 +4,8 @@ import { Icon } from './Icon'
 type Props = {
   url: string
   title: string
+  /** caption under the window; defaults to generic wording */
+  hint?: string
 }
 
 type Device = 'desktop' | 'mobile'
@@ -15,7 +17,11 @@ type Device = 'desktop' | 'mobile'
  * - If the embedded site refuses framing (X-Frame-Options / CSP), the load
  *   event never fires, so after a grace period we surface a clear fallback.
  */
-export function LiveDemo({ url, title }: Props) {
+export function LiveDemo({
+  url,
+  title,
+  hint = 'Interactive preview — scroll and click around inside the window.',
+}: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   // Browsers without IntersectionObserver get the iframe straight away.
   const [armed, setArmed] = useState(
@@ -190,9 +196,7 @@ export function LiveDemo({ url, title }: Props) {
       </div>
 
       <div className="browser__footer">
-        <span>
-          Interactive preview — scroll, browse and add to cart inside the window.
-        </span>
+        <span>{hint}</span>
         <a href={url} target="_blank" rel="noreferrer">
           Open full site
           <Icon name="arrow" size={14} />

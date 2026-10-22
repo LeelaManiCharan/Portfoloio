@@ -227,6 +227,8 @@ export type Project = {
   stack: string[]
   /** when present, the project renders an embedded live-demo window */
   demoUrl?: string
+  /** caption shown under the live window */
+  demoHint?: string
   repoUrl?: string
   /**
    * Optional sign-in details surfaced next to the live preview so a visitor
@@ -253,6 +255,8 @@ export const projects: Project[] = [
     period: '2026',
     featured: true,
     demoUrl: 'https://companionsi.vercel.app/login?next=%2F',
+    demoHint:
+      'Live sign-in screen — open it in a new tab to chat with the companion.',
     image: 'companions',
     blurb:
       'A local-first AI companion that keeps conversations on your own machine by default, routing to an Ollama model and only reaching for the cloud with your explicit consent.',
@@ -283,6 +287,8 @@ export const projects: Project[] = [
     period: 'Nov 2024 — Jan 2026',
     featured: true,
     demoUrl: 'https://srisaishopping.vercel.app/',
+    demoHint:
+      'Interactive preview — scroll, browse and add to cart inside the window.',
     image: 'sri-sai-shopping',
     blurb:
       'A production-grade MERN retail commerce platform with secure Razorpay payments, live inventory and serverless delivery on Vercel.',

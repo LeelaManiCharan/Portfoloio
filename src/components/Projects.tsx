@@ -47,7 +47,11 @@ export function Projects() {
           </div>
 
           {project.demoUrl && (
-            <LiveDemo url={project.demoUrl} title={project.name} />
+            <LiveDemo
+              url={project.demoUrl}
+              title={project.name}
+              hint={project.demoHint}
+            />
           )}
 
           {project.demoCredentials &&
